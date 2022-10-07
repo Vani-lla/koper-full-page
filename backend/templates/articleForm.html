@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Article Form</title>
+</head>
+<body>
+   <form id="post_form" method="post" action="" enctype="multipart/form-data">
+ 
+      {% comment %} {% csrf_token %} {% endcomment %}
+      {% for hidden in articleForm.hidden_fields %}
+         {{ hidden }}
+      {% endfor %}
+   
+      {% for field in articleForm %}
+         {{ field }} <br />
+      {% endfor %}
+
+      {{ imagesForm.management_form }}
+      {% for hidden in imagesForm.hidden_fields %}
+         {{ form }}
+      {% endfor %}
+
+      {% for form in imagesForm %}
+         {{ form }}
+      {% endfor %}
+   
+      <input type="submit" name="submit" value="Submit" />
+  </form>
+  <a href="../../logout">Logout</a>
+</body>
+</html>

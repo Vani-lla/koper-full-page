@@ -1,0 +1,11 @@
+# database
+# db.sqlite3
+
+# static uploads
+uploads/*.jpg
+uploads/*.png
+uploads/*.jpeg
+
+# cache
+# */__pycache__
+# */migrations/00*.py

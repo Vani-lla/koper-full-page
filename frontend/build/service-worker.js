@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/uploads/precache-manifest.b4ec40647f8c4ad95588c0a575a45026.js"
+  "vanilla15.pythonanywhere.com/precache-manifest.10a45ef7cfdf62cd7305392243e7e671.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/uploads/index.html", {
+workbox.routing.registerNavigationRoute("vanilla15.pythonanywhere.com/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });

@@ -30,7 +30,7 @@ class ArticleDisplayView(generics.ListAPIView):
 
 
 class ArticleView(generics.ListAPIView):
-    queryset = Article.objects.all()
+    queryset = Article.objects.all()[::-1]
     serializer_class = ArticleSerializer
 
 
@@ -40,6 +40,14 @@ class ArticleCategoraizedView(generics.ListAPIView):
     def get_queryset(self):
         category = self.kwargs['category']
         return Article.objects.filter(category=category)
+
+
+class ArticleSingleView(generics.ListAPIView):
+    serializer_class = ArticleSerializer
+
+    def get_queryset(self):
+        articleID = self.kwargs['articleID']
+        return Article.objects.filter(id=articleID)
 
 
 class ImagesView(generics.ListAPIView):
@@ -77,38 +85,39 @@ def logoutView(request):
 
 @csrf_exempt
 def articleCreateView(request):
-    if not request.user.is_anonymous:
-        if request.method == 'POST' and request.user.has_perm('backend.can_add_article'):
-            articleForm = ArticleForm(request.POST)
-            images = request.FILES.getlist('images_files')
-            glow = request.FILES.getlist('main_image')
+    # if not request.user.is_anonymous:
+    #     if request.method == 'POST' and request.user.has_perm('backend.can_add_article'):
+    if request.method == 'POST':
+        articleForm = ArticleForm(request.POST)
+        images = request.FILES.getlist('images_files')
+        glow = request.FILES.getlist('main_image')
 
-            if articleForm.is_valid():
-                article_form = articleForm.save(commit=False)
-                article_form.author = request.user
-                if glow:
-                    article_form.main_image = glow[0]
+        if articleForm.is_valid():
+            article_form = articleForm.save(commit=False)
+            # article_form.author = request.user
+            if glow:
+                article_form.main_image = glow[0]
 
-                article_form.save()
+            article_form.save()
 
-                if images:
-                    for img in images:
-                        ArticleImage.objects.create(
-                            article=article_form, img=img)
+            if images:
+                for img in images:
+                    ArticleImage.objects.create(
+                        article=article_form, img=img)
 
-                return HttpResponseRedirect("/api/articles")
-
-            else:
-                print(articleForm.errors)
-                # pass
+            return HttpResponseRedirect("/api/articles")
 
         else:
-            articleForm = ArticleForm()
-            imagesForm = ImageForm()
+            print(articleForm.errors)
+            # pass
 
-            return render(request, 'articleForm.html', {'articleForm': articleForm, 'imagesForm': imagesForm})
     else:
-        return HttpResponseRedirect('/')
+        articleForm = ArticleForm()
+        imagesForm = ImageForm()
+
+        return render(request, 'articleForm.html', {'articleForm': articleForm, 'imagesForm': imagesForm})
+    # else:
+    #     return HttpResponseRedirect('/')
 
 
 # Lesson Plans

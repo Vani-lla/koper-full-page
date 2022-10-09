@@ -1,20 +1,22 @@
 import React from 'react'
 import './Badges.css'
 
+const imageUrl = '/static/media/'
+
 export default function Badges() {
     return (
         <div className='badges tile'>
             <a href='/' id='main-logo-a'>
-                {/* <img id="main-logo" src={logo} alt='main logo' /> */}
+                <img id="main-logo" src={imageUrl+'logo_new.png'} alt='main logo' />
             </a>
             <a href='https://licea.perspektywy.pl/2022/rankings'>
-                {/* <img src={silver} alt='silver badge'/> */}
+                <img src={imageUrl+'sr22.png'} alt='silver badge'/>
             </a>
             <a className='round-badge' href='/rekrutacja'>
-                {/* <img src={rekrut} alt='badge'/> */}
+                <img src={imageUrl+'rekrut.png'} alt='badge'/>
             </a>
             <a className='round-badge' href='https://uonetplus.vulcan.net.pl/powiatcieszynski'>
-                {/* <img src={dziennik} alt='badge'/> */}
+                <img src={imageUrl+'logo_dziennik.png'} alt='badge'/>
             </a>
             <div className='phone-badges'>
                 <a className='round-badge' href='https://www.instagram.com/lo_koper/'>

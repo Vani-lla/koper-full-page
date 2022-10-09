@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect } from 'react'
 import './Nav.css'
-// import logo from '../static/logo_new.png'
 
 export default function Nav() {
     useEffect(() => {
@@ -19,7 +18,7 @@ export default function Nav() {
             <nav className='tile'>
                 <div className='phone-logo'>
                     <a href='/' >
-                        {/* <img src={logo} alt='main logo' /> */}
+                        <img src='/static/media/logo_new.png' alt='main logo' />
                     </a>
                 </div>
                 <input id='phone-nav' className='nav-check' type='checkbox' />

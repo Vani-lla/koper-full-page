@@ -12,3 +12,4 @@ uploads/*.jpeg
 
 frontend/node_modules
 static/*
+db.sqlite3

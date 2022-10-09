@@ -10,7 +10,7 @@ class Article(models.Model):
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     
-    main_image = models.ImageField(upload_to='uploads', null=True)
+    main_image = models.ImageField(null=True)
 
     categories = [
         ('s', 'Sport', ),
@@ -27,7 +27,7 @@ class Article(models.Model):
 class ArticleImage(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
-    img = models.ImageField(upload_to='uploads/', null=True)
+    img = models.ImageField(null=True)
 
     def __str__(self):
         return f'"{self.article.title}" - Image #{self.id}'
@@ -44,7 +44,7 @@ class Category(models.Model):
 
 
 class File(models.Model):
-    file = models.FileField(upload_to='uploads/files')
+    file = models.FileField(upload_to='files')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -54,5 +54,5 @@ class LessonPlan(models.Model):
     date = models.DateField(auto_now_add=True, editable=True)
     start_date = models.DateField()
 
-    excel_file = models.FileField(upload_to='uploads/plans')
+    excel_file = models.FileField(upload_to='plans')
     

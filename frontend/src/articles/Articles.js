@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Articles.css'
 
-const url = 'https://koper.edu.pl/Api/articles.php';
+const url = '/api/articles/display/40';
 const http = new XMLHttpRequest();
 
 export default class Articles extends Component {
@@ -45,7 +45,7 @@ export default class Articles extends Component {
                             <a key={ind} className='tile' href={`artykul/${article.id}`}>
                                 <div className='article' id={"article" + article.id.toString()}>
                                     <div className='glow-container' id={"glow" + article.id.toString()}>
-                                        <img className='article-glow' src={`https://koper.edu.pl/podstrony/page${article.id}/glow.jpg`} alt='Article'
+                                        <img className='article-glow' src={article.main_image} alt='Article'
                                             onError={() => {
                                                 document.getElementById("glow" + article.id.toString()).style = "display: none;";
                                                 document.getElementById("title" + article.id.toString()).style.transform = 'none';
@@ -54,7 +54,7 @@ export default class Articles extends Component {
                                     </div>
                                     <div className='article-title' id={"title" + article.id.toString()}>
                                         <h1>
-                                            {article.tytul}
+                                            {article.title}
                                         </h1>
                                     </div>
                                 </div>

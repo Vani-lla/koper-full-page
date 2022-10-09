@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 from django.views.generic import TemplateView
 from django.shortcuts import render
 
@@ -9,5 +9,5 @@ def index(request, **kwargs):
 
 urlpatterns = [
     # URL list
-    path('', index),
+    re_path(r'', index),
 ]

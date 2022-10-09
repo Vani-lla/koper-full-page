@@ -1,3 +1,6 @@
+/*!*****************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/index.css ***!
+  \*****************************************************************/
 * {
     color: white;
     margin: 0;
@@ -9,7 +12,6 @@
 }
 
 body {
-    /* background-image: url('../static/media/background.png'); */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -27,6 +29,9 @@ body {
         background-color: white;
     }
 }
+/*!***************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/App.css ***!
+  \***************************************************************/
 .tile {
     background-color: rgba(14, 0, 33, 0.7);
     box-shadow: 0 0 40px black;
@@ -76,6 +81,9 @@ body {
         box-shadow: 0 0 15px black;
     }
 }
+/*!*************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/badges/Badges.css ***!
+  \*************************************************************************/
 .badges {
     padding: 1vw;
     display: flex;
@@ -143,6 +151,9 @@ body {
 
     }
 }
+/*!*******************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/nav/Nav.css ***!
+  \*******************************************************************/
 nav {
     position: absolute;
     margin: 1vw;
@@ -447,6 +458,9 @@ nav {
         }
     }
 }
+/*!*************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/rightDesktop/rightDesktop.css ***!
+  \*************************************************************************************/
 .right-desktop {
     display: flex;
     flex-direction: column;
@@ -467,6 +481,9 @@ nav {
         display: none;
     }
 }
+/*!*************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/graphs/Graphs.css ***!
+  \*************************************************************************/
 #graphs {
     /* position: absolute; */
     /* right: 5vw; top: 25vh; */
@@ -548,6 +565,9 @@ nav {
 .poland-highlight {
     color: #68637B;
 }
+/*!***************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/menubar/Menubar.css ***!
+  \***************************************************************************/
 .menu-links {
     width: 100%;
     padding: 1vw;
@@ -613,6 +633,9 @@ i {
         font-size: 1.3em !important;
     }
 }
+/*!*****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/articles/Articles.css ***!
+  \*****************************************************************************/
 .articles {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -791,6 +814,9 @@ i {
     }
 
 }
+/*!************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/article-view/ArticleView.css ***!
+  \************************************************************************************/
 .single-article-view {
     padding: 2em;
     height: fit-content;
@@ -931,6 +957,9 @@ i {
         right: 0;
     }
 }
+/*!***********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/recrutation/Recrutation.css ***!
+  \***********************************************************************************/
 .recrutation {
     padding: 30px;
     z-index: -1;
@@ -984,6 +1013,9 @@ i {
 .recrutation > table thead > tr {
     background-color: rgba(0, 0, 0, .4);
 }
+/*!****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/subpages/History.css ***!
+  \****************************************************************************/
 .history-tiles {
     display: grid;
     grid-template-columns: 1fr;
@@ -995,6 +1027,9 @@ i {
     text-align: center;
     font-size: 1.5em;
 }
+/*!*****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/subpages/Dyrekcja.css ***!
+  \*****************************************************************************/
 .headquarters {
     display: flex;
     flex-direction: column;
@@ -1107,6 +1142,9 @@ i {
         right: 0;
     }
 }
+/*!****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/subpages/Pedagog.css ***!
+  \****************************************************************************/
 .pedagog {
     display: flex;
     height: fit-content;
@@ -1156,6 +1194,9 @@ i {
 .pedagog-sublinks ul li a{
     text-decoration: none;
 }
+/*!**************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/subpages/RadaR.css ***!
+  \**************************************************************************/
 .radar {
     height: fit-content;
 }
@@ -1185,6 +1226,9 @@ i {
     font-size: 1.5em;
 }
 
+/*!**************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/subpages/SamoR.css ***!
+  \**************************************************************************/
 .samor h1 {
     font-size: 3em;
     margin-bottom: 1em;
@@ -1204,6 +1248,9 @@ i {
 .samor .i {
     font-weight: 900;
 }
+/*!*****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/subpages/Kontakty.css ***!
+  \*****************************************************************************/
 .kontakty {
     display: grid;
     grid-gap: 2em;
@@ -1243,7 +1290,13 @@ i {
 .kontakty img {
     max-width: 100%;
 }
+/*!******************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/subpages/Kalendarz.css ***!
+  \******************************************************************************/
 
+/*!*******************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/subpages/Nauczyciel.css ***!
+  \*******************************************************************************/
 .nauczyciel {
     display: flex;
     flex-direction: column;
@@ -1259,6 +1312,9 @@ i {
     list-style: none;
     margin-bottom: .8em;
 }
+/*!****************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/subpages/Erasmus.css ***!
+  \****************************************************************************/
 .erasmus {
     display: grid;
     grid-gap: 2em;

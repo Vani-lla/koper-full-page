@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import './ArticleView.css'
 
 const http = new XMLHttpRequest();
+const http2 = new XMLHttpRequest();
 
 export default function ArticleView() {
     const [data, setData] = useState(0);
@@ -13,22 +14,31 @@ export default function ArticleView() {
     const id = useParams().id;
 
     useEffect(() => {
-        const url = `https://koper.edu.pl/Api/article.php?nr=${id}`;
+        const url = `/api/article/${id}`;
+        const url2 = `/api/images/${id}`;
 
         http.open("GET", url);
         http.send();
         http.onreadystatechange = () => {
             let d = http.responseText;
             if (http.readyState === 4) {
-                // console.log(JSON.parse(d)[0]);
-                // console.log(JSON.parse(d)[0].foto.split('_'));
                 setData(JSON.parse(d)[0]);
-                let f = JSON.parse(d)[0].foto.split('_');
-                f.splice(-1);
-                setFotos(f);
-                setLoading(true);
             }
         }
+
+        http2.open("GET", url2);
+        http2.send();
+        http2.onreadystatechange = () => {
+            let d2 = http2.responseText;
+            if (http.readyState === 4) {
+                if (d2) {
+                    setFotos(JSON.parse(d2));
+                    setLoading(true);
+                }
+
+            }
+        }
+
     }, []);
 
     useEffect(() => {
@@ -43,14 +53,14 @@ export default function ArticleView() {
         return (
             <div className='single-article-view tile'>
                 <h1>
-                    {data.tytul}
+                    {data.title}
                 </h1>
                 <div className='article-images'>
                     <div id='slider'>
-                        {fotos.map((ind, url) => {
+                        {fotos.map((url, ind) => {
                             return (
-                                <div key={url} className='image-slider'>
-                                    <img className='slider-img' src={`https://koper.edu.pl/podstrony/page${id}/${ind}`} alt='article' />
+                                <div key={ind} className='image-slider'>
+                                    <img className='slider-img' src={url.img} alt='article' />
                                 </div>
                             )
                         })}
@@ -88,7 +98,7 @@ export default function ArticleView() {
                     }
                 </div>
 
-                <p dangerouslySetInnerHTML={{ __html: data.tresc }}>
+                <p dangerouslySetInnerHTML={{ __html: data.content }}>
                 </p>
             </div>
         )

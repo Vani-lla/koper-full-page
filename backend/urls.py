@@ -8,6 +8,7 @@ urlpatterns = [
    # Articles
    path('articles/', ArticleView.as_view()),
    path('articles/<category>', ArticleCategoraizedView.as_view()),
+   path('article/<articleID>', ArticleSingleView.as_view()),
    path('images/<articleID>', ImagesView.as_view()),
    path('articles/display/<limit>', ArticleDisplayView.as_view()),
 

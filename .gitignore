@@ -11,3 +11,4 @@ uploads/*.jpeg
 # */migrations/00*.py
 
 frontend/node_modules
+generated

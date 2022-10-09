@@ -28,7 +28,7 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: path.resolve(__dirname, "../static/react")
+                            publicPath: path.resolve(__dirname, "../react")
                         },
                     },
                     {

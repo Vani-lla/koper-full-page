@@ -1,0 +1,15 @@
+.nauczyciel {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.nauczyciel a {
+    padding: .4em .1em;
+}
+
+.nauczyciel ul {
+    list-style: none;
+    margin-bottom: .8em;
+}

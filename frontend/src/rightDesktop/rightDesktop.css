@@ -1,0 +1,20 @@
+.right-desktop {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 900px;
+    z-index: 0;
+}
+
+@media only screen and (max-width: 1210px) {
+    .right-desktop {
+        height: 800px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .right-desktop {
+        display: none;
+    }
+}

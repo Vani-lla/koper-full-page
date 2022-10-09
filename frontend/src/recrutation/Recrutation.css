@@ -1,0 +1,53 @@
+.recrutation {
+    padding: 30px;
+    z-index: -1;
+}
+
+.recrutation > table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.recrutation > table tr {
+    height: 15vh;
+}
+
+.recrutation > table * {
+    text-align: center;
+    text-decoration: none;
+    /* list-style: none; */
+    list-style-position: inside;
+}
+
+.recrutation > table li {
+    text-align: left;
+    text-decoration: none;
+    /* list-style: none; */
+    list-style-position: inside;
+}
+
+.recrutation > table th {
+    font-size: 30px;
+}
+
+.recrutation > table li {
+    font-size: 20px;
+    margin: 4px;
+}
+
+.recrutation > table td {
+    font-size: 20px;
+    margin: 4px;
+}
+
+.recrutation > table td:first-child {
+    font-size: 20px;
+}
+
+.recrutation > table tr:nth-child(2n) {
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.recrutation > table thead > tr {
+    background-color: rgba(0, 0, 0, .4);
+}

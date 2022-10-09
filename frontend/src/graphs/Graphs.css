@@ -1,0 +1,81 @@
+#graphs {
+    /* position: absolute; */
+    /* right: 5vw; top: 25vh; */
+    width: 100%;
+    padding: 1vw;
+    display: flex;
+    height: 330px;
+
+    font-size: 1rem;
+}
+
+.graph {
+    height: 200px;
+}
+
+.value-line {
+    height: calc(100% - 2px);
+    width: 2px;
+    background-color: white;
+}
+
+.base-line {
+    height: 2px;
+    width: inherit;
+    background-color: white;
+}
+
+.slupek {
+    width: 20%;
+    position: absolute;
+    transition: 1s;
+}
+
+.koper-value {
+    background-color: var(--highlight-color);
+    transform: translate(70%, calc(-2px - 100%));
+}
+
+.poland-value {
+    background-color: #68637B;
+    transform: translate(270%, calc(-2px - 100%));
+}
+
+.slupek-description {
+    position: absolute;
+    width: 20%;
+    text-align: center;
+    font-weight: 900;
+    transition: 1s;
+}
+
+.graph-subject {
+    text-align: center;
+    transition: 1s;
+    position: absolute;
+    top: 235px;
+    width: calc(100% - 2vw);
+}
+
+.active {
+    opacity: 1;
+}
+
+.inactive {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.graph-legend {
+    text-align: center;
+    margin-top: 60px;
+    width: 100%;
+    font-size: 1.3em;
+}
+
+.koper-highlight {
+    color: var(--highlight-color);
+}
+.poland-highlight {
+    color: #68637B;
+}

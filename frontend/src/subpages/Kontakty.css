@@ -1,0 +1,39 @@
+.kontakty {
+    display: grid;
+    grid-gap: 2em;
+}
+
+.kontakty > div {
+    text-align: center;
+    padding: 1vw;
+}
+
+.kontakty-title {
+    height: 100px;
+}
+
+.kontakty-title h1 {
+    position: absolute;
+    height: fit-content; width: fit-content;
+    margin: auto;
+    top: 0; bottom: 0; left: 0; right: 0;
+    font-size: 2.5em;
+}
+
+.kontakty p {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.kontakty p h3 {
+    font-size: 1.5em;
+    margin-top: 1em;
+}
+
+.kontakty .info {
+    font-size: 1.7em;
+}
+
+.kontakty img {
+    max-width: 100%;
+}

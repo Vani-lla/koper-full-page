@@ -1,0 +1,11 @@
+.history-tiles {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2vw;
+}
+
+.history-tiles p {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 1.5em;
+}

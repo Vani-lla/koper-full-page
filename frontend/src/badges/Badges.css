@@ -1,0 +1,67 @@
+.badges {
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+}
+
+#main-logo {
+    margin-bottom: 40px;
+}
+
+.badges img {
+    width: 10vw;
+    max-width: 150px;
+}
+
+.badges a {
+    margin-bottom: 30px;
+}
+
+.round-badge {
+    border-radius: 50%;
+    background-color: rgba(14, 0, 33, 0.6);
+    aspect-ratio: 1 / 1;
+
+    transition: .2s;
+}
+
+.round-badge:hover {
+    transform: scale(1.05);
+    background-color: rgba(14, 0, 33, 1);
+    box-shadow: 0 0 10px black;
+}
+
+.phone-badges {
+    display: none;
+}
+
+@media only screen and (max-width: 900px) {
+    #main-logo-a {
+        display: none;
+    }
+
+    .badges img {
+        min-width: 55px;
+    }
+
+    .phone-badges {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 3em;
+    }
+
+    .phone-badges a {
+        min-width: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .round-badge {
+
+    }
+}

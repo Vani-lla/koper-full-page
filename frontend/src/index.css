@@ -1,0 +1,29 @@
+* {
+    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oxanium', cursive;
+    /* outline: solid 1px yellow; */
+    --top-height: 200px;
+}
+
+body {
+    /* background-image: url('../static/media/background.png'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: rgb(14, 0, 33);
+    /* overflow-x: hidden; */
+}
+
+@media only screen and (max-width: 900px) {
+    * {
+        --top-height: 15vh;
+    }
+
+    body {
+        background-size: 200% 100vh;
+        background-color: white;
+    }
+}

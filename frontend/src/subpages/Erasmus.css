@@ -1,0 +1,42 @@
+.erasmus {
+    display: grid;
+    grid-gap: 2em;
+}
+
+.erasmus > div {
+    text-align: center;
+    padding: 1vw;
+}
+
+.erasmus-logo {
+    display: flex;
+}
+
+.erasmus-logo img {
+    max-width: 20vw;
+}
+
+.erasmus-logo h1 {
+    margin: auto;
+    font-size: 6em;
+}
+
+.era-article {
+    font-size: 1.5em;
+}
+
+.era-article > img {
+    max-width: 20vw;
+    float: left;
+}
+
+.era-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    font-size: 1.5em;
+}
+
+.era-list ul {
+    list-style: none;
+}

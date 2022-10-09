@@ -1,0 +1,19 @@
+.samor h1 {
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+
+.samor * {
+    text-align: center;
+}
+
+.samor-headquarters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 1em;
+    font-size: 1.5em;
+}
+
+.samor .i {
+    font-weight: 900;
+}

@@ -1,0 +1,112 @@
+.headquarters {
+    display: flex;
+    flex-direction: column;
+}
+
+.sensei-room {
+    display: flex;
+}
+
+.member {
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.member>img {
+    max-width: 13vw;
+    margin: auto;
+}
+
+.role {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    padding-bottom: 5vh;
+}
+
+.description div {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.member .description b {
+    text-align: center;
+    font-size: 2em;
+}
+
+.headquarters>img {
+    width: 50vw;
+    margin: auto;
+    margin-bottom: 5vh;
+}
+
+.teachers {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.subject {
+    margin-bottom: 2vh;
+}
+
+.subject-name {
+    font-size: 2.5rem;
+}
+
+.teacher-list {
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 900px) {
+    .headquarters {
+        font-size: .8em;
+    }
+
+    .sensei-room {
+        flex-direction: column;
+    }
+
+    .description {
+        padding-bottom: 0;
+        height: 100%;
+        align-items: center;
+        grid-row-start: 2;
+        grid-column-start: 2;
+    }
+
+    .description b {
+        margin: auto;
+    }
+
+    .member {
+        display: grid;
+        grid-template-rows: 2em 1fr;
+        grid-template-columns: 1fr 2fr;
+        width: 100%;
+        margin-bottom: 3vw;
+    }
+
+    .role {
+        margin-top: 0;
+        text-align: left;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    .headquarters>img {
+        margin: 2em auto 2em auto;
+        left: 0;
+        right: 0;
+    }
+}

@@ -25,5 +25,5 @@ urlpatterns = [
     # re_path(r'.*', include('frontend.urls')),
 ]
 
-urlpatterns += static(settings.UPLOAD_URL, document_root=settings.UPLOAD_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.UPLOAD_URL, document_root=settings.UPLOAD_ROOT)

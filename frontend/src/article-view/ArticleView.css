@@ -1,0 +1,140 @@
+.single-article-view {
+    padding: 2em;
+    height: fit-content;
+}
+
+.single-article-view>h1 {
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 25px;
+}
+
+.single-article-view>p {
+    margin-top: 1.5em;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+
+.single-article-view>p h2 {
+    font-size: 1em;
+}
+
+.article-images {
+    overflow-x: hidden;
+    max-height: 50vh;
+    display: flex;
+    /* align-items: center; */
+}
+
+#slider {
+    display: flex;
+    align-items: center;
+    scroll-behavior: auto;
+    transition: transform .3s;
+    min-width: 100%;
+}
+
+.image-slider {
+    min-width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.article-images img {
+    max-width: 100%;
+    max-height: 50vh;
+    margin: auto;
+}
+
+.article-images>button {
+    position: absolute;
+
+    background-color: rgba(0, 0, 0, .5);
+    border: none;
+    font-size: 4em;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+
+    cursor: pointer;
+    align-self: center;
+}
+
+#btn-l {
+    left: .5em;
+}
+
+#btn-r {
+    right: .5em;
+}
+
+.slider-dots {
+    position: absolute;
+    align-self: end;
+    left: 0;
+    right: 0;
+    display: flex;
+    width: inherit;
+    justify-content: center;
+}
+
+.dots-container {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dots-container>button {
+    min-width: .9em;
+    min-height: .9em;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    margin: .4em;
+    background-color: rgba(0, 0, 0, .5);
+
+    transition: all .3s;
+}
+
+.active-dot {
+    box-shadow: 0 0 5px var(--highlight-color);
+    background-color: var(--highlight-color) !important;
+    opacity: .8;
+    transform: scale(1.1);
+}
+
+@media only screen and (max-width: 1210px) {
+    .single-article-view>h1 {
+        font-size: 2.2em;
+    }
+
+    .single-article-view>p {
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .single-article-view {
+        padding: 1em;
+    }
+
+    .article-images>button {
+        position: absolute;
+
+        border: none;
+        width: 1em;
+        height: 1em;
+
+        cursor: pointer;
+        align-self: center;
+    }
+
+    #btn-l {
+        left: 0;
+    }
+    #btn-r {
+        right: 0;
+    }
+}

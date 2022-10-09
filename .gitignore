@@ -9,3 +9,5 @@ uploads/*.jpeg
 # cache
 # */__pycache__
 # */migrations/00*.py
+
+frontend/node_modules

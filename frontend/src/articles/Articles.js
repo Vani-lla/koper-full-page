@@ -62,7 +62,7 @@ export default class Articles extends Component {
                         );
                     })}
 
-                    <a href='/artykuly' className='see-more tile'>
+                    <a href='/artykuly/0' className='see-more tile'>
                         <h1>Zobacz wszystkie artykuły</h1>
                     </a>
                 </div>

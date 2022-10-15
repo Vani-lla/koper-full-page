@@ -93,7 +93,7 @@ export default function Nav() {
 
                     </div>
                     <div className='nav-topic'>
-                        <a href='#plany' className='drop-topic'>Plany lekcji</a>
+                        <a href='/plany' className='drop-topic'>Plany lekcji</a>
                     </div>
                     <div className='nav-topic'>
                         <a href='#zastępstwa' className='drop-topic'>Zastępstwa</a>

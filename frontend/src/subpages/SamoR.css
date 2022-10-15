@@ -17,3 +17,7 @@
 .samor .i {
     font-weight: 900;
 }
+
+.samor {
+    height: fit-content;
+}

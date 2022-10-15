@@ -19,7 +19,7 @@
     transform: scale(1.05);
 }
 
-i {
+.menu-links i {
     color: inherit;
     font-size: 1em;
 }

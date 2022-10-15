@@ -29,7 +29,8 @@ SECRET_KEY = 'django-insecure-=xa@jgzuw!8u9)1fl$lqfa$(npdx1)z0sudg6$9#^n7o!di4-v
 DEBUG = True
 
 ALLOWED_HOSTS = ['vanilla15.pythonanywhere.com', '127.0.0.1',
-                 'https://vanilla15.pythonanywhere.com/', 'localhost']
+                 'https://vanilla15.pythonanywhere.com/', 'localhost',
+                 '192.168.0.138']
 
 
 # Application definition
@@ -42,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'backend.apps.BackendConfig',
+    # 'backend.apps.BackendConfig',
+    'backend',
 ]
 
 MIDDLEWARE = [

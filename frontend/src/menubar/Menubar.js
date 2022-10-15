@@ -32,7 +32,7 @@ export default function Menubar() {
                 </div>
                 <div>
                     <a title='Informatyka' className='flash-text-nav' href='https://koper.edu.pl/index.php?pokaz=menu_inne&baner=tak'>
-                        <i className='fa fa-microchip' aria-hidden="true"></i>
+                    <i class="fa-solid fa-computer"></i>
                     </a>
                 </div>
             </div>

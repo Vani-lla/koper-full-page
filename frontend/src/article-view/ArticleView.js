@@ -8,14 +8,14 @@ const http2 = new XMLHttpRequest();
 export default function ArticleView() {
     const [data, setData] = useState(0);
     const [fotos, setFotos] = useState(0);
-    const [loading, setLoading] = useState(0);
     const [slider, setSlider] = useState(0);
+    const [loading, setLoading] = useState(true);
+    const [fotosLoading, setFotosLoading] = useState(false);
 
     const id = useParams().id;
 
     useEffect(() => {
         const url = `/api/article/${id}`;
-        const url2 = `/api/images/${id}`;
 
         http.open("GET", url);
         http.send();
@@ -23,33 +23,38 @@ export default function ArticleView() {
             let d = http.responseText;
             if (http.readyState === 4) {
                 setData(JSON.parse(d)[0]);
+                setFotosLoading(true);
             }
         }
-
-        http2.open("GET", url2);
-        http2.send();
-        http2.onreadystatechange = () => {
-            let d2 = http2.responseText;
-            if (http.readyState === 4) {
-                if (d2) {
-                    setFotos(JSON.parse(d2));
-                    setLoading(true);
-                }
-
-            }
-        }
-
     }, []);
 
     useEffect(() => {
-        if (loading) {
+        if (fotosLoading) {
+            const url2 = `/api/images/${data.id}`;
+            http2.open("GET", url2);
+            http2.send();
+            http2.onload = () => {
+                let d2 = http2.responseText;
+                if (d2) {
+                    let images = JSON.parse(d2);
+                    images.push({ 'img': data.main_image });
+                    setFotos(images.reverse());
+                    setLoading(false);
+                }
+            }
+        }
+        setFotosLoading(false);
+    }, [fotosLoading])
+    
+
+    useEffect(() => {
+        if (!loading) {
             // console.log(slider);
             document.getElementById('slider').style = `transform: translateX(-${slider * 100}%);`;
         }
     }, [slider])
 
-
-    if (loading) {
+    if (!loading) {
         return (
             <div className='single-article-view tile'>
                 <h1>
@@ -85,14 +90,14 @@ export default function ArticleView() {
                                     if (slider < fotos.length - 1) {
                                         setSlider(slider + 1);
                                     }
-                                }} id='btn-r'>→	</button>
+                                }} id='btn-r'><i class="fa-solid fa-chevron-right"></i></button>
                             }
                             {slider !== 0 &&
                                 <button onClick={() => {
                                     if (slider > 0) {
                                         setSlider(slider - 1);
                                     }
-                                }} id='btn-l'>←</button>
+                                }} id='btn-l'><i class="fa-solid fa-chevron-left"></i></button>
                             }
                         </Fragment>
                     }

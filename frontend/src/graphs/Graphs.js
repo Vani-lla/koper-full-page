@@ -27,9 +27,9 @@ export default class Graphs extends Component {
                 <div className='base-line' />
 
                 <div title='Wynik średni w Koperze' className='koper-value slupek' style={{ height: `${(2 * graph_data.koper).toString()}px` }} />
-                <div className='slupek-description' style={{ transform: `translate(70%, -${(2 * graph_data.koper + 20).toString()}px)` }}>{graph_data.koper}%</div>
+                <div className='slupek-description' style={{ transform: `translate(50%, -${(2 * graph_data.koper + 20).toString()}px)` }}>{graph_data.koper}%</div>
                 <div title='Wynik średni w Polsce' className='poland-value slupek' style={{ height: `${(2 * graph_data.polska).toString()}px` }} />
-                <div className='slupek-description' style={{ transform: `translate(270%, -${(2 * graph_data.polska + 20).toString()}px)` }}>{graph_data.polska}%</div>
+                <div className='slupek-description' style={{ transform: `translate(250%, -${(2 * graph_data.polska + 20).toString()}px)` }}>{graph_data.polska}%</div>
 
 
                 <div className='graph-legend'>

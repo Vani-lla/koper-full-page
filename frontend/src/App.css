@@ -1,5 +1,5 @@
 .tile {
-    background-color: rgba(14, 0, 33, 0.7);
+    background-color: rgba(14, 0, 33, 0.9);
     box-shadow: 0 0 40px black;
     backdrop-filter: blur(5px);
     /* z-index: -1; */
@@ -8,6 +8,10 @@
 
 .central {
     padding: 1vw;
+
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 1;
 }
 
 .e404 {
@@ -22,11 +26,17 @@
 
 .main {
     display: grid;
-    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-columns: 1fr 8fr 1fr;
     grid-gap: 2vw;
     position: absolute;
     top: var(--top-height);
     margin-left: 2vw; margin-right: 2vw;
+}
+
+@media only screen and (max-width: 1450px) {
+    .main {
+        grid-template-columns: 1fr 6fr 1fr;
+    }
 }
 
 @media only screen and (max-width: 1210px) {
@@ -34,16 +44,19 @@
         grid-template-columns: 1fr 4fr 1fr;
     }
 }
- 
+
 @media only screen and (max-width: 900px) {
     .main {
-        grid-template-columns: 1fr 4fr;
-        grid-gap: .6em;
-        margin-left: .6em; margin-right: .6em;
-        min-width: 97vw;
+        display: flex;
+        margin: auto;
+        width: 100vw;
     }
 
     .tile {
         box-shadow: 0 0 15px black;
+    }
+
+    .central {
+        width: 100%;
     }
 }

@@ -1,0 +1,81 @@
+.lesson-plan {
+    display: grid;
+    grid-template-columns: 1fr repeat(5, 3fr);
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.lesson-t {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    min-height: 4.5em;
+}
+
+.lesson-t>div {
+    font-size: 1.5em;
+}
+
+.lesson-t>div:first-child>div{
+    font-weight: 700;
+    align-self: flex-end;
+}
+
+.lesson-g {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    min-height: 4.5em;
+}
+
+.lesson-g>div:first-child>div{
+    font-weight: 700;
+    align-self: flex-end;
+}
+
+.lesson-g>div:last-child>div{
+    align-self: flex-start;
+}
+
+.lesson-g>div{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.lesson-t>div{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+.lesson-n {
+    min-height: 4.5em;
+    /* font-size: 2em; */
+}
+
+.plan-n {
+    min-height: 4.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lesson-t>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plan-background {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.plan-tag {
+    padding-bottom: 1em;
+}
+
+@media only screen and (max-width: 900px) {
+    .lesson-plan {
+        font-size: 1em;
+    }
+
+}

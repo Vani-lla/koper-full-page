@@ -10,7 +10,8 @@ class ArticleForm(forms.ModelForm):
     categories = [
         ('s', 'Sport', ),
         ('b', 'Biblioteka', ),
-        ('g', 'Strona główna', )
+        ('g', 'Strona główna', ),
+        ('k', 'Konkursy', )
     ]
 
     category = forms.ChoiceField(choices=categories)

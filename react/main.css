@@ -8,7 +8,11 @@
     box-sizing: border-box;
     font-family: 'Oxanium', cursive;
     /* outline: solid 1px yellow; */
-    --top-height: 200px;
+    --top-height: 150px;
+}
+
+html {
+    font-size: 13px;
 }
 
 body {
@@ -33,7 +37,7 @@ body {
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/App.css ***!
   \***************************************************************/
 .tile {
-    background-color: rgba(14, 0, 33, 0.7);
+    background-color: rgba(14, 0, 33, 0.9);
     box-shadow: 0 0 40px black;
     backdrop-filter: blur(5px);
     /* z-index: -1; */
@@ -42,6 +46,10 @@ body {
 
 .central {
     padding: 1vw;
+
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 1;
 }
 
 .e404 {
@@ -56,11 +64,17 @@ body {
 
 .main {
     display: grid;
-    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-columns: 1fr 8fr 1fr;
     grid-gap: 2vw;
     position: absolute;
     top: var(--top-height);
     margin-left: 2vw; margin-right: 2vw;
+}
+
+@media only screen and (max-width: 1450px) {
+    .main {
+        grid-template-columns: 1fr 6fr 1fr;
+    }
 }
 
 @media only screen and (max-width: 1210px) {
@@ -68,17 +82,20 @@ body {
         grid-template-columns: 1fr 4fr 1fr;
     }
 }
- 
+
 @media only screen and (max-width: 900px) {
     .main {
-        grid-template-columns: 1fr 4fr;
-        grid-gap: .6em;
-        margin-left: .6em; margin-right: .6em;
-        min-width: 97vw;
+        display: flex;
+        margin: auto;
+        width: 100vw;
     }
 
     .tile {
         box-shadow: 0 0 15px black;
+    }
+
+    .central {
+        width: 100%;
     }
 }
 /*!*************************************************************************!*\
@@ -90,15 +107,16 @@ body {
     flex-direction: column;
     align-items: center;
     height: fit-content;
+
+
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 1;
 }
 
 #main-logo {
     margin-bottom: 40px;
-}
-
-.badges img {
-    width: 10vw;
-    max-width: 150px;
+    max-width: 100%;
 }
 
 .badges a {
@@ -110,7 +128,23 @@ body {
     background-color: rgba(14, 0, 33, 0.6);
     aspect-ratio: 1 / 1;
 
+    max-width: 90%;
+
     transition: .2s;
+}
+
+.silver-badge {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.silver-badge img {
+    max-width: 90%;
+}
+
+.round-badge img {
+    max-width: 100%;
 }
 
 .round-badge:hover {
@@ -123,9 +157,45 @@ body {
     display: none;
 }
 
+.badges-mobile-btn {
+    display: none;
+}
+
 @media only screen and (max-width: 900px) {
     #main-logo-a {
         display: none;
+    }
+
+    .badges-mobile-btn { 
+        display: block;
+        /* margin: auto; */
+        position: absolute;
+        right: -2.5em;
+        top: calc(var(--top-height) - 2.5em);
+        bottom: 0;
+        border: none;
+        /* background-color: rgba(14, 0, 0, .5); */
+        background-color: red;
+
+        height: 2.5em;
+        width: 2.5em;
+    }
+
+    .badges {
+        position: absolute;
+        top: calc(-1 * var(--top-height));
+        padding-top: var(--top-height);
+        width: 25vw;
+        left: 0;
+        background-color: rgb(14, 0, 33) !important;
+        box-shadow: none !important;
+        transform: translateX(-100%);
+
+        transition: transform .3s;
+    }
+
+    .badges-active {
+        transform: none;
     }
 
     .badges img {
@@ -146,10 +216,6 @@ body {
         align-items: center;
         text-decoration: none;
     }
-
-    .round-badge {
-
-    }
 }
 /*!*******************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/nav/Nav.css ***!
@@ -164,8 +230,7 @@ nav {
 }
 
 .navigation {
-    margin-top: 1vh;
-    padding: 10px;
+    padding: .5em;
     display: grid;
     grid-template-columns: .1fr repeat(4, 1fr) .1fr;
     grid-gap: 20px;
@@ -468,6 +533,9 @@ nav {
     align-items: center;
     height: 900px;
     z-index: 0;
+
+    grid-column-start: 3;
+    grid-column-end: 4;
 }
 
 @media only screen and (max-width: 1210px) {
@@ -519,12 +587,12 @@ nav {
 
 .koper-value {
     background-color: var(--highlight-color);
-    transform: translate(70%, calc(-2px - 100%));
+    transform: translate(50%, calc(-2px - 100%));
 }
 
 .poland-value {
     background-color: #68637B;
-    transform: translate(270%, calc(-2px - 100%));
+    transform: translate(250%, calc(-2px - 100%));
 }
 
 .slupek-description {
@@ -589,7 +657,7 @@ nav {
     transform: scale(1.05);
 }
 
-i {
+.menu-links i {
     color: inherit;
     font-size: 1em;
 }
@@ -708,17 +776,6 @@ i {
     width: 100%;
 }
 
-.allarticles {
-    position: absolute;
-    top: var(--top-height);
-    left: 5vw;
-    width: 90vw;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 2em;
-}
-
 .filter {
     display: flex;
     flex-direction: column;
@@ -734,7 +791,6 @@ i {
 }
 
 .loader {
-    position: absolute;
     width: 100px;
     height: 100px;
     left: calc(50vw - 50px);
@@ -795,6 +851,10 @@ i {
 @media screen and (max-width: 900px) {
     html {
         font-size: 10px;
+    }
+    
+    .articles {
+        width: 100%;
     }
 
     .articles a:hover {
@@ -868,16 +928,50 @@ i {
 
 .article-images>button {
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     background-color: rgba(0, 0, 0, .5);
     border: none;
-    font-size: 4em;
-    width: 1.5em;
-    height: 1.5em;
+    font-size: 3em;
+    width: 2em;
+    height: 2em;
     border-radius: 50%;
 
     cursor: pointer;
     align-self: center;
+}
+
+.article-images>button i {
+    transition: text-shadow .1s;
+    transition: color .3s;
+    transition: transform .3s;
+}
+
+.article-images>button:active i {
+    text-shadow: 0 0 3px var(--highlight-color);
+}
+
+
+.article-images>button:focus i {
+    transform: scale(1.2);
+    color: var(--highlight-color) !important;
+}
+
+@keyframes button-click {
+    0% {
+        background-color: black;
+
+    }
+
+    50% {
+        background-color: var(--highlight-color);
+    }
+
+    100% {
+        background-color: black;
+    }
 }
 
 #btn-l {
@@ -937,6 +1031,7 @@ i {
 @media only screen and (max-width: 900px) {
     .single-article-view {
         padding: 1em;
+        width: 100%;
     }
 
     .article-images>button {
@@ -953,6 +1048,7 @@ i {
     #btn-l {
         left: 0;
     }
+
     #btn-r {
         right: 0;
     }
@@ -1248,6 +1344,10 @@ i {
 .samor .i {
     font-weight: 900;
 }
+
+.samor {
+    height: fit-content;
+}
 /*!*****************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/subpages/Kontakty.css ***!
   \*****************************************************************************/
@@ -1312,6 +1412,21 @@ i {
     list-style: none;
     margin-bottom: .8em;
 }
+/*!********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/articles/AllArticles.css ***!
+  \********************************************************************************/
+.allarticles {
+    position: absolute;
+    top: var(--top-height);
+    left: 5vw;
+    width: 90vw;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2em;
+
+    grid-auto-rows: minmax(25em, auto);
+}
 /*!****************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/subpages/Erasmus.css ***!
   \****************************************************************************/
@@ -1358,3 +1473,177 @@ i {
     list-style: none;
 }
 
+/*!*********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/plan/Plan.css ***!
+  \*********************************************************************/
+.groups-container {
+    display: grid;
+    /* grid-template-rows: repeat(4, 1fr); */
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1.5em;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 5em;
+    width: 75%;
+}
+
+.groups-container>a {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-self: center;
+
+    width: 3em;
+    height: 3em;
+    background-color: rgba(14, 0, 33, 0.6);
+
+    font-size: 2em;
+    text-decoration: none;
+}
+
+.groups-container>a>div {
+    position: block;
+    width: 100%;
+}
+
+.plany>h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+.teachers-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: .1em;
+    grid-column-gap: 10em;
+    margin-top: 1em;
+}
+
+.teacher {
+    width: 100%;
+    font-size: 1.5em;
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    padding: .4em 0 .4em 0;
+}
+
+.teacher-short {
+    font-weight: 700;
+}
+
+.teacher:hover {
+    background-color: rgba(100, 100, 100, .2);
+}
+
+.teacher:hover .teacher-short {
+    color: var(--highlight-color);
+}
+
+@media only screen and (max-width: 1210px) {
+    .plany {
+        font-size: 11px;
+    }
+
+    .groups-container {
+        width: 100%;
+    }
+
+    .teachers-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .groups-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .groups-container>a {
+        font-size: 1.5em;
+    }
+}
+/*!*************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/plan/PlanView.css ***!
+  \*************************************************************************/
+.lesson-plan {
+    display: grid;
+    grid-template-columns: 1fr repeat(5, 3fr);
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.lesson-t {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    min-height: 4.5em;
+}
+
+.lesson-t>div {
+    font-size: 1.5em;
+}
+
+.lesson-t>div:first-child>div{
+    font-weight: 700;
+    align-self: flex-end;
+}
+
+.lesson-g {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    min-height: 4.5em;
+}
+
+.lesson-g>div:first-child>div{
+    font-weight: 700;
+    align-self: flex-end;
+}
+
+.lesson-g>div:last-child>div{
+    align-self: flex-start;
+}
+
+.lesson-g>div{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.lesson-t>div{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+.lesson-n {
+    min-height: 4.5em;
+    /* font-size: 2em; */
+}
+
+.plan-n {
+    min-height: 4.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lesson-t>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plan-background {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.plan-tag {
+    padding-bottom: 1em;
+}
+
+@media only screen and (max-width: 900px) {
+    .lesson-plan {
+        font-size: 1em;
+    }
+
+}

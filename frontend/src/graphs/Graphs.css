@@ -33,12 +33,12 @@
 
 .koper-value {
     background-color: var(--highlight-color);
-    transform: translate(70%, calc(-2px - 100%));
+    transform: translate(50%, calc(-2px - 100%));
 }
 
 .poland-value {
     background-color: #68637B;
-    transform: translate(270%, calc(-2px - 100%));
+    transform: translate(250%, calc(-2px - 100%));
 }
 
 .slupek-description {

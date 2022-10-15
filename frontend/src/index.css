@@ -5,7 +5,11 @@
     box-sizing: border-box;
     font-family: 'Oxanium', cursive;
     /* outline: solid 1px yellow; */
-    --top-height: 200px;
+    --top-height: 150px;
+}
+
+html {
+    font-size: 13px;
 }
 
 body {

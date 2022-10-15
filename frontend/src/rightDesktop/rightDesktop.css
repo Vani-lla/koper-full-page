@@ -5,6 +5,9 @@
     align-items: center;
     height: 900px;
     z-index: 0;
+
+    grid-column-start: 3;
+    grid-column-end: 4;
 }
 
 @media only screen and (max-width: 1210px) {

@@ -4,15 +4,16 @@
     flex-direction: column;
     align-items: center;
     height: fit-content;
+
+
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 1;
 }
 
 #main-logo {
     margin-bottom: 40px;
-}
-
-.badges img {
-    width: 10vw;
-    max-width: 150px;
+    max-width: 100%;
 }
 
 .badges a {
@@ -24,7 +25,23 @@
     background-color: rgba(14, 0, 33, 0.6);
     aspect-ratio: 1 / 1;
 
+    max-width: 90%;
+
     transition: .2s;
+}
+
+.silver-badge {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.silver-badge img {
+    max-width: 90%;
+}
+
+.round-badge img {
+    max-width: 100%;
 }
 
 .round-badge:hover {
@@ -37,9 +54,45 @@
     display: none;
 }
 
+.badges-mobile-btn {
+    display: none;
+}
+
 @media only screen and (max-width: 900px) {
     #main-logo-a {
         display: none;
+    }
+
+    .badges-mobile-btn { 
+        display: block;
+        /* margin: auto; */
+        position: absolute;
+        right: -2.5em;
+        top: calc(var(--top-height) - 2.5em);
+        bottom: 0;
+        border: none;
+        /* background-color: rgba(14, 0, 0, .5); */
+        background-color: red;
+
+        height: 2.5em;
+        width: 2.5em;
+    }
+
+    .badges {
+        position: absolute;
+        top: calc(-1 * var(--top-height));
+        padding-top: var(--top-height);
+        width: 25vw;
+        left: 0;
+        background-color: rgb(14, 0, 33) !important;
+        box-shadow: none !important;
+        transform: translateX(-100%);
+
+        transition: transform .3s;
+    }
+
+    .badges-active {
+        transform: none;
     }
 
     .badges img {
@@ -59,9 +112,5 @@
         justify-content: center;
         align-items: center;
         text-decoration: none;
-    }
-
-    .round-badge {
-
     }
 }

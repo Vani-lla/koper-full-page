@@ -70,17 +70,6 @@
     width: 100%;
 }
 
-.allarticles {
-    position: absolute;
-    top: var(--top-height);
-    left: 5vw;
-    width: 90vw;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 2em;
-}
-
 .filter {
     display: flex;
     flex-direction: column;
@@ -96,7 +85,6 @@
 }
 
 .loader {
-    position: absolute;
     width: 100px;
     height: 100px;
     left: calc(50vw - 50px);
@@ -157,6 +145,10 @@
 @media screen and (max-width: 900px) {
     html {
         font-size: 10px;
+    }
+    
+    .articles {
+        width: 100%;
     }
 
     .articles a:hover {

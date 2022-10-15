@@ -19,6 +19,8 @@ import Nauczyciel from './subpages/Nauczyciel';
 import Uczen from './subpages/Uczen';
 import AllArticles from './articles/AllArticles';
 import Erasmus from './subpages/Erasmus';
+import Plan from './plan/Plan';
+import PlanView from './plan/PlanView';
 
 function App() {
     return (
@@ -27,9 +29,9 @@ function App() {
                 <Route path='' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <Articles />
                             <RightDesktop />
+                            <Badges />
                         </div>
                         <Nav />
                     </Fragment>
@@ -38,17 +40,10 @@ function App() {
                 <Route path='/artykul/:id' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <ArticleView />
                             <RightDesktop />
+                            <Badges />
                         </div>
-                        <Nav />
-                    </Fragment>
-                }>
-                </Route>
-                <Route path='/artykuly' element={
-                    <Fragment>
-                        <AllArticles />
                         <Nav />
                     </Fragment>
                 }>
@@ -63,9 +58,9 @@ function App() {
                 <Route path='/rekrutacja' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <Recrutation />
                             <RightDesktop />
+                            <Badges />
                         </div>
                         <Nav />
                     </Fragment>
@@ -74,9 +69,9 @@ function App() {
                 <Route path='/erasmus' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <Erasmus />
                             <RightDesktop />
+                            <Badges />
                         </div>
                         <Nav />
                     </Fragment>
@@ -85,9 +80,9 @@ function App() {
                 <Route path='/historia' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <History />
                             <RightDesktop />
+                            <Badges />
                         </div>
                         <Nav />
                     </Fragment>
@@ -96,9 +91,9 @@ function App() {
                 <Route path='/grono' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <Dyrekcja />
                             <RightDesktop />
+                            <Badges />
                         </div>
                         <Nav />
                     </Fragment>
@@ -107,9 +102,9 @@ function App() {
                 <Route path='/pedagog' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <Pedagog />
                             <RightDesktop />
+                            <Badges />
                         </div>
                         <Nav />
                     </Fragment>
@@ -118,9 +113,9 @@ function App() {
                 <Route path='/radarodzicuf' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <RadaR />
                             <RightDesktop />
+                            <Badges />
                         </div>
                         <Nav />
                     </Fragment>
@@ -129,9 +124,9 @@ function App() {
                 <Route path='/samorzad' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <SamoR />
                             <RightDesktop />
+                            <Badges />
                         </div>
                         <Nav />
                     </Fragment>
@@ -140,9 +135,9 @@ function App() {
                 <Route path='/biblioteka' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <SamoR />
                             <RightDesktop />
+                            <Badges />
                         </div>
                         <Nav />
                     </Fragment>
@@ -151,9 +146,9 @@ function App() {
                 <Route path='/kontakty' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <Kontakty />
                             <RightDesktop />
+                            <Badges />
                         </div>
                         <Nav />
                     </Fragment>
@@ -164,9 +159,9 @@ function App() {
                 <Route path='/kalendarz' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <Kalendarz />
                             <RightDesktop />
+                            <Badges />
                         </div>
                         <Nav />
                     </Fragment>
@@ -175,9 +170,9 @@ function App() {
                 <Route path='/deklaracjadost' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <Kalendarz />
                             <RightDesktop />
+                            <Badges />
                         </div>
                         <Nav />
                     </Fragment>
@@ -186,9 +181,9 @@ function App() {
                 <Route path='/nauczyciel' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <Nauczyciel />
                             <RightDesktop />
+                            <Badges />
                         </div>
                         <Nav />
                     </Fragment>
@@ -197,9 +192,31 @@ function App() {
                 <Route path='/uczen' element={
                     <Fragment>
                         <div className='main'>
-                            <Badges />
                             <Uczen />
                             <RightDesktop />
+                            <Badges />
+                        </div>
+                        <Nav />
+                    </Fragment>
+                }>
+                </Route>
+                <Route path='/plany' exact element={
+                    <Fragment>
+                        <div className='main'>
+                            <RightDesktop />
+                            <Plan />
+                            <Badges />
+                        </div>
+                        <Nav />
+                    </Fragment>
+                }>
+                </Route>
+                <Route path='/plan/:t/:id' element={
+                    <Fragment>
+                        <div className='main'>
+                            <RightDesktop />
+                            <PlanView />
+                            <Badges />
                         </div>
                         <Nav />
                     </Fragment>

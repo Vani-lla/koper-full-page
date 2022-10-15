@@ -26,20 +26,15 @@ class ArticleDisplayView(generics.ListAPIView):
 
     def get_queryset(self):
         limit = self.kwargs['limit']
-        return Article.objects.all().order_by('-id')[:int(limit)]
-
-
-class ArticleView(generics.ListAPIView):
-    queryset = Article.objects.all()[::-1]
-    serializer_class = ArticleSerializer
+        return Article.objects.all().order_by('-id')[:int(limit):-1]
 
 
 class ArticleCategoraizedView(generics.ListAPIView):
-    serializer_class = ArticleSerializer
+    serializer_class = ArticleDisplaySerializer
 
     def get_queryset(self):
         category = self.kwargs['category']
-        return Article.objects.filter(category=category)
+        return Article.objects.filter(category=category)[::-1]
 
 
 class ArticleSingleView(generics.ListAPIView):
@@ -89,7 +84,7 @@ def articleCreateView(request):
     #     if request.method == 'POST' and request.user.has_perm('backend.can_add_article'):
     if request.method == 'POST':
         articleForm = ArticleForm(request.POST)
-        images = request.FILES.getlist('images_files')
+        images = request.FILES.getlist('images_field')
         glow = request.FILES.getlist('main_image')
 
         if articleForm.is_valid():
@@ -105,11 +100,10 @@ def articleCreateView(request):
                     ArticleImage.objects.create(
                         article=article_form, img=img)
 
-            return HttpResponseRedirect("/api/articles")
+            return HttpResponseRedirect("/api/articles/display/1")
 
         else:
             print(articleForm.errors)
-            # pass
 
     else:
         articleForm = ArticleForm()
@@ -127,7 +121,7 @@ class LessonPlanView(generics.ListAPIView):
 
 
 def groupsListView(request):
-    file_path = LessonPlan.objects.last().excel_file.path
+    file_path = LessonPlan.objects.latest('id').excel_file.path
 
     l = []
     with xlrd.open_workbook(file_path) as file:
@@ -139,11 +133,25 @@ def groupsListView(request):
             else:
                 break
 
-    return JsonResponse({'classes': l})
+        sheet = file.sheet_by_index(3)
+
+        teachers = []
+        for i in range(1, sheet.nrows):
+            row = sheet.row(i)
+            if row[1].value:
+                teacher = {
+                    "name": row[1].value,
+                    "short": row[2].value
+                }
+                teachers.append(teacher)
+            else:
+                break
+
+    return JsonResponse({'classes': l, 'teachers': teachers})
 
 
 def planForGoupView(request, *args, **kwargs):
-    file_path = LessonPlan.objects.last().excel_file.path
+    file_path = LessonPlan.objects.latest('id').excel_file.path
 
     group = kwargs['group']
     ind_k = 0
@@ -174,32 +182,10 @@ def planForGoupView(request, *args, **kwargs):
     return JsonResponse({"plan": l})
 
 
-def teacherListView(request):
-    file_path = LessonPlan.objects.last().excel_file.path
-
-    with xlrd.open_workbook(file_path) as file:
-        sheet = file.sheet_by_index(3)
-
-        teachers = []
-        for i in range(1, sheet.nrows):
-            row = sheet.row(i)
-            if row[1].value:
-                teacher = {
-                    "name": row[1].value,
-                    "short": row[2].value
-                }
-                print(teacher['name'])
-                teachers.append(teacher)
-            else:
-                break
-
-    return JsonResponse({"teachers": teachers})
-
-
 def teacherPlanView(request, **kwargs):
     teacher = kwargs['teacher']
 
-    file_path = LessonPlan.objects.last().excel_file.path
+    file_path = LessonPlan.objects.latest('id').excel_file.path
 
     with xlrd.open_workbook(file_path) as file:
         sheet = file.sheet_by_index(0)
@@ -223,8 +209,11 @@ def teacherPlanView(request, **kwargs):
                         if teacher in t.split('/'):
                             lk['active'] = True
                             lk['group'] = groups[x-1]
-                            lk['classroom'] = sheet.row(
-                                i+1)[x].value.split('/')[t.split('/').index(teacher)]
+                            try:
+                                lk['classroom'] = sheet.row(
+                                    i+1)[x].value.split('/')[t.split('/').index(teacher)]
+                            except AttributeError:
+                                lk['classroom'] = str(int(sheet.row(i+1)[x].value))
                 ld.append(lk)
             l.append(ld)
 
